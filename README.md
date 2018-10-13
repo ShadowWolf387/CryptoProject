@@ -14,8 +14,8 @@ Download a copy of QB64 and/or Dev-C++ with Mingw for Windows, or QB64 and GCC f
 and the same compilers that I use.
 
 The C or C++ version of each program will be compiled and released as a Win32 executable. If there is enough demand
-or someone willing to help, a Linux executable may also be compiled. For any oher platforms, you should be able
-to do a C or C++ build with GCC.
+or someone willing to help, a Linux executable may also be compiled. For any other platforms, you should be able
+to do a C or C++ build with GCC or other C/C++ compiler.
 
 For more details check out https://www.tumblr.com/blog/shadowwolf387c
 I can be reached either here or tumblr.
