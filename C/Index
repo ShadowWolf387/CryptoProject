@@ -1,0 +1,5 @@
+Core
+    The basic file I/O core with Rot-13 as a place holder cipher.
+    
+FreqCnt
+    Frequency counter, (English) ASCII text A-Z. Converts lower case (a-z) to upper case before counting.
