@@ -1,6 +1,9 @@
 Caesar Cipher
     One the most basic of substitution ciphers.
 
+Codebook
+    The PRNG based code book creator. Makes "random" CvCvC "words" and pairs them with a small word list.
+
 Core
     The basic file I/O core with Rot-13 as a place holder cipher.
     
