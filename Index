@@ -1,0 +1,13 @@
+Files for Tumblr
+
+C    C version files
+    These files should build using any relatively modern C compiler under any OS. Tested with Mingw32 and Dev-C++.
+    
+Cpp  C++ version files
+    These files should build using any relatvely modern C++ compiler under any OS. Tested with Mingw32 and Dev-C++.
+    
+QB   Quick Basic, QB, QB64, Qbasic compaible files
+    Tested with QuickBasic 4.0 (16 bit) and QB64 (32 bit) but should work with most QB versions including up to VB6.
+    
+Executables  Compiled Win32 command or console window files.
+    These should be 32bit Win32 command window compatible programs. Most will be compiled from C.
