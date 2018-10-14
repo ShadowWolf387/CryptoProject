@@ -10,4 +10,4 @@ QB   Quick Basic, QB, QB64, Qbasic compaible files
     Tested with QuickBasic 4.0 (16 bit) and QB64 (32 bit) but should work with most QB versions including up to VB6.
     
 Executables  Compiled Win32 command or console window files.
-    These should be 32bit Win32 command window compatible programs. Most will be compiled from C.
+    These should be 32bit Win32 command window compatible programs. Most will be compiled from C or C++.
