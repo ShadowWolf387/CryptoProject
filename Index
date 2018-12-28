@@ -11,3 +11,7 @@ QB   Quick Basic, QB, QB64, Qbasic compaible files
     
 Executables  Compiled Win32 command or console window files.
     These should be 32bit Win32 command window compatible programs. Most will be compiled from C or C++.
+    You may find sample test files with programs if they are not to large.
+    
+Each subdirectory will be divided into individual program directories. If there isn't a file or it isn't listed yet,
+then I either don't have one done or it isn't uploaded yet.
