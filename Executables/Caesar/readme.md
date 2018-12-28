@@ -1,6 +1,7 @@
 Caesar.exe (C version)
 
-ct.txt: A sample ciphertext
+ct.txt: A sample ciphertext.
+
 pt.txt: A sample plaintext.
 
 Perhaps the easiest of all the substitution ciphers.
