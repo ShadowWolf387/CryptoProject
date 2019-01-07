@@ -1,17 +1,34 @@
-Caesar Cipher
+Aristcrt
+    A general substitution cipher that keeps word divisions and punctuation.
+
+Caesar
     One the most basic of substitution ciphers.
+    
+Case *
+    Utility to convert text to all upper or all lower case letters. Retains punctuation and word divisions.
 
 Codebook
     The PRNG based code book creator. Makes "random" CvCvC "words" and pairs them with a small word list.
 
+Contact *
+    Moving window trigram counter that displays output as contact frequencies.
+
 Core
     The basic file I/O core with Rot-13 as a place holder cipher.
     
-FreqCnt
+Digram *
+    A moving window digram counter. Ignores word divisions.
+
+FreqCnt *
     Frequency counter, (English) ASCII text A-Z. Converts lower case (a-z) to upper case before counting.
+
+Ptrstcrt
+    A general substitution cipher that hides word divisions and removes punctuation. Output is all upper case.
 
 Rot-13
     The self inverting Caesar Cipher variant that saw common use to hide punch lines and answers in usenet.
 
 SuperUnbreakableCipher
     Mostly a programming joke. An educational program to help demonstrate why things may not be as secure as they seem.
+
+* General utility programs. These are aids for the solution of cryptograms or generating statistics.
