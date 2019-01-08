@@ -9,6 +9,3 @@ FreqCnt
 
 Rot-13
     The self inverting Caesar Cipher variant that saw common use to hide punch lines and answers in usenet.
-
-SuperUnbreakableCipher
-    Mostly a programming joke. An educational program to help demonstrate why things may not be as secure as they seem.
