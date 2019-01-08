@@ -1,5 +1,12 @@
 Files for Tumblr
 
+Each subdirectory will be divided into individual program directories. If there isn't a file or it isn't listed yet,
+then I either don't have that version done or it isn't uploaded yet.
+
+Look at the Executables/Index file for a current list of downloads and a brief description of each program. With few
+exceptions, the C source code is usually posted first. Some programs may initially only be available in QB, C++ or C
+though many will eventually get source code in all 3.
+
 C    C version files
     These files should build using any relatively modern C compiler under any OS. Tested with Mingw32 and Dev-C++.
     
@@ -7,11 +14,8 @@ Cpp  C++ version files
     These files should build using any relatvely modern C++ compiler under any OS. Tested with Mingw32 and Dev-C++.
     
 QB   Quick Basic, QB, QB64, Qbasic compaible files
-    Tested with QuickBasic 4.0 (16 bit) and QB64 (32 bit) but should work with most QB versions including up to VB6.
+    Tested with QuickBasic 4.0 (16 bit) and QB64 (32/64 bit) but should work with most QB versions including up to VB6.
     
 Executables  Compiled Win32 command or console window files.
     These should be 32bit Win32 command window compatible programs. Most will be compiled from C or C++.
     You may find sample test files with programs if they are not to large.
-    
-Each subdirectory will be divided into individual program directories. If there isn't a file or it isn't listed yet,
-then I either don't have one done or it isn't uploaded yet.
