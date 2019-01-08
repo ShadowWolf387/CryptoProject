@@ -1,2 +1,2 @@
 This folder will contain all the C files.
-Incompatibilites will typically be with the int sizes. Where there are potentially large counts, type unsigned long is used with the hope that it is at least a 32 bit integer. Otherwise, int is specified where a 16 bit int would be large enough.
+Incompatibilites will typically be with the int sizes. Bulding under 32 or 64 bit MingW or other GCC port should work fine. If you build using an older 16 bit compiler, some int types may need changed to long. Also you may need to reduce limits on some large arrays as they are potentially larger than a 16 bit segment and will not build properly with a 16 bit compiler.
