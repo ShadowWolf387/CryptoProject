@@ -1,8 +1,10 @@
+Some files may not be uploaded yet.
+
 Aristcrt
-    A general substitution cipher that keeps word divisions and punctuation.
+    A general substitution cipher that keeps word divisions and punctuation. Output retains letter case.
 
 Caesar
-    One the most basic of substitution ciphers.
+    The simplest substitution cipher.
     
 Case *
     Utility to convert text to all upper or all lower case letters. Retains punctuation and word divisions.
