@@ -22,6 +22,9 @@ Digram *
 FreqCnt *
     Frequency counter, (English) ASCII text A-Z. Converts lower case (a-z) to upper case before counting.
 
+Polybius
+    The Polybius Square cipher. Accepts 25 or 26 letter keys. the letters I/J are combined.
+    
 Ptrstcrt
     A general substitution cipher that hides word divisions and removes punctuation. Output is all upper case.
 
@@ -30,5 +33,8 @@ Rot-13
 
 SuperUnbreakableCipher
     Mostly a programming joke. An educational program to help demonstrate why things may not be as secure as they seem.
-
+    
+Trigram *
+    A moving window trigram counter. Ignores word divisions.
+    
 * General utility programs. These are aids for the solution of cryptograms or generating statistics.
