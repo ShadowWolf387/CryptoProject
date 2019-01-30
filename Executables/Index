@@ -27,6 +27,9 @@ FreqCnt *
 Polybius
     The Polybius Square cipher. Accepts 25 or 26 letter keys. the letters I/J are combined.
     
+PosCnt *
+    Letter position frequency counter. Output is arranged by letter then size and position up to 20 letter words. 
+
 Ptrstcrt
     A general substitution cipher that hides word divisions and removes punctuation. Output is all upper case.
 
