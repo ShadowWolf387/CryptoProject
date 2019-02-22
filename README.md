@@ -11,7 +11,7 @@ There could be a WinGUI and maybe a Linux GUI eventually.
 
 If you intend to build your own, you will need a core set and the work files for each cipher or utility program.
 Download a copy of QB64 and/or Dev-C++ with Mingw for Windows, or QB64 and GCC for Linux. This is all free software
-and the same compilers that I use.
+and the same compilers that I use. At some time in the future, I may release the Dev-C++ project files or I may simply build a large make file.
 
 The C or C++ version of each program will be compiled and released as a Win32 executable. If there is enough demand
 or someone willing to help, a Linux executable may also be compiled. For any other platforms, you should be able
