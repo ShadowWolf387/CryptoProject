@@ -21,6 +21,9 @@ Core
 Digram *
     A moving window digram counter. Ignores word divisions.
 
+Digram2 *
+    A strict digram counter. Ignores word divisions.
+
 DiPoly
     A digraphic Polybius square based cipher.
 
@@ -44,5 +47,8 @@ SuperUnbreakableCipher
     
 Trigram *
     A moving window trigram counter. Ignores word divisions.
+
+TriPoly
+    A trigraphic Polybius square based cipher.
     
 * General utility programs. These are aids for the solution of cryptograms or generating statistics.
