@@ -39,6 +39,9 @@ PosCnt *
 Ptrstcrt
     A general substitution cipher that hides word divisions and removes punctuation. Output is all upper case.
 
+Quagmire
+    Quagmire cipher. Whether it is Q1,Q2,Q3, or Q4 depends on the key file.
+
 Rot-13
     The self inverting Caesar Cipher variant that saw common use to hide punch lines and answers in usenet.
 
