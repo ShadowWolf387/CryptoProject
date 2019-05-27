@@ -4,11 +4,19 @@
 
 #define MAXSZ 600
 
+/* Colors defined here to make finding them easier. */
+#define CTXTCLR LIGHTGREEN
+#define PTXTCLR YELLOW
+#define CRSRCLR WHITE
+#define ALPHCLR LIGHTGREEN
+#define CNTCLR	YELLOW
+#define NORMCLR LIGHTGRAY
+
 char cfrtxt[MAXSZ+1];
 char subtbl[26];
 int fc[26];
 int pstn;
-int ltrcnt;
+int txtcnt,ltrcnt;
 float ic,s;
 
 int onekey(void);
@@ -53,24 +61,25 @@ int main(int argc, char *argv[]){
 	}
 	fclose(fi);
 	cfrtxt[x]=0;
-	ltrcnt=x;
+	txtcnt=x;
 	/* Initialize */
 	clrscr();
-	pstn=0;
+	ltrcnt=pstn=0;
 	for(x=0;x<26;x++){
 		if(argc!=3)subtbl[x]=32;
 		s+=(float)(fc[x]*(fc[x]-1));
+		ltrcnt+=fc[x];
 	}
 	ic=s/(float)(ltrcnt*(ltrcnt-1));
 	/* Do work loop */
 	gotoxy(1,21);
-	textcolor(11);
+	textcolor(ALPHCLR);
 	for(x=0;x<26;x++)cprintf("  %c",x+65);
 	gotoxy(1,22);
-	textcolor(10);
+	textcolor(CNTCLR);
 	for(x=0;x<26;x++)cprintf(" %2d",fc[x]);
 	gotoxy(1,24);
-	cprintf("IC = %f  (0.0667)",ic);
+	cprintf("Sum FC = %f   Count = %d   IC = %f  (0.0667)",s,ltrcnt,ic);
 	do{
 		show();
 		c=onekey();
@@ -104,40 +113,38 @@ void show(void){
 	int c,x;
 	
 	x=0;
-	textcolor(10);
-	while(x<ltrcnt){
+	textcolor(CTXTCLR);
+	while(x<txtcnt){
 		if(x%75==0)gotoxy(3,(x/75)*2+2);
 		cprintf("%c",cfrtxt[x]);
 		x++;
 	}
 	x=0;
-	textcolor(12);
-	while(x<ltrcnt){
+	textcolor(PTXTCLR);
+	while(x<txtcnt){
 		if(x%75==0)gotoxy(3,(x/75)*2+3);
 		c=cfrtxt[x];
 		if(c>='A'&&c<='Z')c=subtbl[c-65];
 		cprintf("%c",c);
 		x++;
 	}
-	textcolor(11);
+	textcolor(ALPHCLR);
 	gotoxy(14,18);
 	cprintf(" A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ");
 	gotoxy(14,19);
-	textcolor(12);
+	textcolor(PTXTCLR);
 	for(x=0;x<26;x++)cprintf(" %c",subtbl[x]);
-	textcolor(15);
+	textcolor(CRSRCLR);
 	gotoxy(14+pstn*2,18);
 	cprintf("|");
 	gotoxy(16+pstn*2,18);
 	cprintf("|");
-	textcolor(7);
+	textcolor(NORMCLR);
 }
 void keyread(int ky){
 	switch(ky){
 		case 32:
-			if(ky=32){
-				subtbl[pstn]=32;
-			}
+			subtbl[pstn]=32;
 			break;
 		case 331:
 			pstn--;
@@ -148,7 +155,10 @@ void keyread(int ky){
 			if(pstn>25)pstn=0;
 			break;
 		default:
-			if(ky>='A'&&ky<='Z')ky+=32;
+			if(ky>='A'&&ky<='Z'){
+				pstn=ky-65;
+				return;
+			}
 			if(ky>='a'&&ky<='z'){
 				subtbl[pstn]=ky;
 			}
