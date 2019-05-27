@@ -1,1 +1,1 @@
-A substitution ciphercracking assistant.
+A substitution cipher cracking assistant.

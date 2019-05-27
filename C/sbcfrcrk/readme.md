@@ -18,7 +18,7 @@ that do the same job.
 While most of my programs are simple command line programs and are very portable,
 I haven't found or really looked very hard for a Linux equivalent of conio with
 the borland extensions. Given that there is a Linux port of QB64, It may be possible
-hack up a QB64 library compatible with Mingw using CLS, LOCATE and COLOR from that.
+to hack up a QB64 library compatible with Mingw using CLS, LOCATE and COLOR from that.
 
 If you must run it on Linux, you could run most any DOS or Win95-Win7 in a Vitual Box VM.
 It is an easy port to QB so that may be another path to Linux availability.
