@@ -18,5 +18,8 @@ or someone willing to help, a Linux executable may also be compiled. For any oth
 to do a C or C++ build with GCC or other C/C++ compiler. Most if not all the programs should be buildable using the GCC
 command line.
 
-For more details check out https://www.tumblr.com/blog/shadowwolf387c
+For more details check out https://shadowwolf387c.tumblr.com/
 I can be reached either here or tumblr.
+
+PGP Key: 8B2CFE8F80CBED79E4F53BC21A628FA469FEE9A1.asc
+
