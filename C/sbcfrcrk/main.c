@@ -1,8 +1,15 @@
 #include <stdio.h>
+//#define LINUX
+
+#ifdef LINUX
+#include "coniolnx.h"
+#else
 #include <conio.h>
 #include "conio2.h"
+#endif
 
-#define MAXSZ 600
+
+#define MAXSZ 600 /* Also limits frequency counts to 2 digits at 600. */
 
 /* Colors defined here to make finding them easier. */
 #define CTXTCLR LIGHTGREEN
@@ -18,6 +25,7 @@ int fc[26];
 int pstn;
 int txtcnt,ltrcnt;
 float ic,s;
+int c1,c2,c3,ct[26][26],rs[26],vl[5],vc;
 
 int onekey(void);
 void show(void);
@@ -25,9 +33,15 @@ void keyread(int ky);
 
 int main(int argc, char *argv[]){
 	int c,x;
+	int y,z;
 	FILE *fi,*fo;
-	if(argc>2&&argc<3){
-		printf("Usage: subcfr infile <savefile>\n");
+	
+#ifdef LINUX
+	inicjuj();
+#endif
+
+	if(argc<2||argc>3){
+		printf("Usage: subcfr infile <keyfile>\n");
 		printf("Text size limited to %d chars.\n",MAXSZ);
 		return 1;
 	}
@@ -54,14 +68,22 @@ int main(int argc, char *argv[]){
 		if(c==10)c=32;
 		if(c>='a'&&c<='z')c-=32;
 		if(c>=32&&c<=126){
-			cfrtxt[x]=c;
-			fc[c-65]++;
+			cfrtxt[x]=c; /* text */
+			if(c>='A'&&c<='Z'){
+				fc[c-65]++; /* frequency */
+				c3=c2; /* Build Sukhotin contact table */
+				c2=c1;
+				c1=c-65;
+				if(x>0)ct[c2][c1]++;
+				if(x>1)ct[c2][c3]++;
+			}
 			x++;
 		}
 	}
 	fclose(fi);
 	cfrtxt[x]=0;
 	txtcnt=x;
+	ct[c1][c2]++; /* Add last contact for Sukhotin table */
 	/* Initialize */
 	clrscr();
 	ltrcnt=pstn=0;
@@ -71,6 +93,26 @@ int main(int argc, char *argv[]){
 		ltrcnt+=fc[x];
 	}
 	ic=s/(float)(ltrcnt*(ltrcnt-1));
+	for(x=0;x<26;x++){ /* Sum Sukhotin contact table rows */
+		ct[x][x]=0; /* Clear the diagonal for all the letters */
+		for(y=0;y<26;y++){
+			rs[x]+=ct[x][y];
+		}
+	}
+	z=vc=0;
+	do{
+		for(x=0;x<26;x++){ /* Find highest row */
+			if(rs[x]>rs[z])z=x;
+		}
+		if(rs[z]>0){ /* Save as vowel if highest number positive. */
+			vl[vc]=z+65;
+			vc++;
+			for(y=0;y<26;y++){
+				rs[y]-=(ct[z][y]+ct[z][y]); /* Subtract 2x vowel column from rows */
+			}			
+			rs[z]=1; /* Remove vowel from row sums. */
+		}
+	}while(rs[z]>0&&vc<5); /* exit if 5 vowels found or sums are all negative. */
 	/* Do work loop */
 	gotoxy(1,21);
 	textcolor(ALPHCLR);
@@ -79,13 +121,14 @@ int main(int argc, char *argv[]){
 	textcolor(CNTCLR);
 	for(x=0;x<26;x++)cprintf(" %2d",fc[x]);
 	gotoxy(1,24);
-	cprintf("Sum FC = %f   Count = %d   IC = %f  (0.0667)",s,ltrcnt,ic);
-	do{
+	cprintf("Count = %d   IC = %f   Vowels = ",ltrcnt,ic);
+	for(x=0;x<vc;x++)cprintf("%c",vl[x]);
+	do{ /* Control loop */
 		show();
 		c=onekey();
 		keyread(c);
 	}while(c!=27);
-	if(argc==3){
+	if(argc==3){ /* Save key if given a file name. */
 		if((fo=fopen(argv[2],"wt"))==NULL){
 			printf("Can't open savefile\n");
 			return 1;
@@ -109,7 +152,7 @@ int onekey(void){
 	}
 	return(c);
 }
-void show(void){
+void show(void){ /* Write current screen data */
 	int c,x;
 	
 	x=0;
@@ -141,7 +184,7 @@ void show(void){
 	cprintf("|");
 	textcolor(NORMCLR);
 }
-void keyread(int ky){
+void keyread(int ky){ /* Decides what to do with key press. */
 	switch(ky){
 		case 32:
 			subtbl[pstn]=32;
